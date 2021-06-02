@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>HTMLの練習</title>
+	</head>
+	<body>
+		<h1>hello world!</h1>
+		<form method="post" action="xxxx.php" target="_blank">
+		<input id="text_input" type="text" value="hello"/>
+		<input type="submit"/>
+		</form>
+		<span id ="result"></span>
+		<script src="./jquery-3.6.0.min.js"></script>
+		<script>
+			$(function(){
+				$("form").submit(
+					function(e){
+						if(confirm("送信しますか")){
+							var text =$("#text_input").val();
+							if(text === ""){
+								e.preventDefault();
+								console.log("送信キャンセルされました");
+							}else{
+								console.log("送信しました");
+								console.log("text");
+							}
+						}else{
+							e.preventDefault();
+							console.log("キャンセル押しました");
+						}
+					}
+				);
+			});
+		</script>
+	</body>
+
+</html>
